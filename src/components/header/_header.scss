@@ -1,0 +1,247 @@
+header {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: url(/dist/images/banner-bcg.jpg)top/cover fixed no-repeat;
+    filter: drop-shadow(.5rem .5rem .25rem $mainBlack);
+
+    @include breakpoint-up(medium) {
+        margin: 3rem;
+    }
+}
+
+nav {
+    @include breakpoint-up(large) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+}
+
+.logo {
+    display: none;
+    width: 8rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include breakpoint-up(medium){
+        display: block;
+        margin-left: 2rem;
+        filter: drop-shadow(.25rem .25rem .25rem $mainBlack);
+    }
+}
+
+.menu-btn {
+    top: 2rem;
+    right: 5rem;
+    cursor: pointer;
+    position: absolute;
+
+    @include breakpoint-up(large) {
+        display: none;
+    } 
+}
+
+.burger {
+    position: absolute;
+    display: block;
+    height: .6rem;
+    width: 3rem;
+    background: $mainGold;
+    box-shadow: $boxShadow;
+    opacity: 1;
+    left: 0;
+    border-radius: .5rem;
+    z-index: 10;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition:  all .5s ease-in-out;
+
+    &:nth-child(1) {
+        top: 0;
+        &.open {
+            top: 1.125rem;
+            transform: rotate(135deg);
+        }
+    }
+    &:nth-child(2) {
+        top: .8875rem;
+        &.open {
+            opacity: 0;
+            left: -3.75rem;
+        }
+    }
+    &:nth-child(3) {
+        top: 1.775rem;
+        &.open {
+            top: 1.125rem;
+            transform: rotate(-135deg);
+        }
+    }
+}
+
+.links {
+    display: none;
+   
+    @include breakpoint-up(large){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3rem;
+        height: 100%;
+    }
+}
+
+.nav-item {
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0 2rem;
+    text-shadow: $textShadow;
+    transition: padding .5s ease-in-out;
+
+    &:hover {
+        padding-top: 1rem;
+    }
+
+    & a {
+        font-size: $fontMd;
+        color: $white;
+        text-shadow: .25rem -.25rem .1rem $mainGreen;
+        transition: all .5s ease-in-out;
+
+        @media screen and (min-width: 70em){
+            font-size: $fontLg;
+        }
+
+        &:hover {
+            color: $mainGold;
+            text-shadow: .1rem -.1rem .1rem $white;
+        }
+    }
+}
+
+@keyframes fade-in {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.mob-links {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    background: transparent;
+
+    @include breakpoint-up(large){
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    &.fade-in {
+        animation: fade-in .5s ease-in-out forwards;
+    }
+    &.fade-out {
+        animation: fade-out .5s ease-in-out forwards;
+    }
+}
+
+.mob-link-item {
+    display: block;
+    font-size: $fontLg;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+
+    & a {
+        color: $white;
+        text-shadow: -.25rem -.25rem .1rem $mainGreen;
+        z-index: 10 !important;
+    }
+}
+
+.banner {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-wrapper {
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainBlack;
+    text-shadow: .25rem -.25rem .25rem $mainGold;
+    transition: opacity .3s ease-in-out;
+
+    @include breakpoint-up(large) {
+        visibility: visible !important;
+    }
+
+    & h1 {
+        text-transform: uppercase;
+        text-shadow: .25rem -.25rem .25rem $mainGold;
+
+        @include breakpoint-up(large) {
+            font-size: 4rem;
+        }
+    }
+
+    & h2 {
+        text-transform: capitalize;
+        line-height: 1.5;
+        padding: 1rem 0;
+    }
+
+    &.open {
+        visibility: hidden;
+    }
+}
+
+.banner-underline {
+    width: 15rem;
+    margin: 1.5rem auto;
+    border: .3rem solid $mainGold;
+    box-shadow: $boxShadow;
+}

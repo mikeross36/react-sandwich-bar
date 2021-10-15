@@ -1,0 +1,66 @@
+.season {
+    padding: 1rem; 
+    height: 100%;
+    background: linear-gradient(
+        rgba($bodyBcg, .5),
+        rgba($bodyBcg, .5)), 
+        url(/dist/images/season-bcg.jpg) center center/cover no-repeat;
+
+    & h2 {
+        text-align: center;
+        text-transform: capitalize;
+        font-family: Arial;
+        font-weight: bolder;
+        color: $white;
+        text-shadow: $textShadow;
+        padding: 1rem;
+        border-bottom: 2px solid $white;
+
+        @include breakpoint-up(medium) {
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+.season-offer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    padding: 2rem 1rem;
+
+    @include breakpoint-up(medium) {
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+        margin: 2rem;
+    }
+
+    & img {
+        display: block;
+        width: 9rem;
+        max-height: 12rem;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        filter: grayscale(100%);
+        transition: all .3s ease-in-out;
+        align-self: center;
+        box-shadow: $boxShadow;
+        cursor: pointer;
+        position: relative;
+
+        @include breakpoint-up(medium) {
+            width: 13rem;
+            max-height: 15rem;
+        }
+    
+        &:hover {
+            -webkit-filter: none;
+            -moz-filter: none;
+            filter: none;
+            opacity: 1.25;
+            transform: skew(-2deg, 2deg) scale(1.1);
+        }
+    }
+}

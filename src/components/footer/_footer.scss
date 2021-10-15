@@ -1,0 +1,135 @@
+.footer {
+    height: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(
+        rgba($mainBlack, .5), 
+        rgba($mainBlack, .5)), 
+        url(/dist/images/footer-bcg.jpg) center center/cover no-repeat;
+
+        @include breakpoint-up(medium){
+            height: 90%;
+        }
+
+    & p, a {
+        color: $white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-shadow: $textShadow;
+        z-index: 5;
+    }
+
+    .footer-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+
+        @include breakpoint-up(medium){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "logo links1 links2"
+            "para links1 links2"
+            "contact contact contact";
+            justify-items: center;
+            align-items: start;
+        }
+
+        & p {
+            font-size: 1rem;
+            padding: 0 2rem;
+            line-height: 1.5;
+            align-self: start;
+
+            @include breakpoint-up(medium) {
+                font-size: .9rem;
+                grid-area: para;
+                width: 80%;
+                padding: 0;
+                text-align: center;
+                align-self: start;
+            }
+        }
+
+        .logo {
+            display: inline-block;
+            width: 8rem;
+           
+            &:hover {
+                cursor: pointer;
+            }
+        
+            @include breakpoint-up(medium){
+                grid-area: logo;
+                filter: drop-shadow($boxShadow);
+                // width: 10rem;
+            }
+        }
+
+        .footer-contact {
+            width: 100%;
+            text-align: center;
+
+            @include breakpoint-up(medium) {
+                grid-area: contact;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            & a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .footer-links1, .footer-links2 {
+            display: flex;
+            flex-direction: column;
+
+            @include breakpoint-up(medium){
+                align-self: flex-end;
+            }
+
+            & a {
+                font-size: .7rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding-bottom: 1rem;
+
+                @include breakpoint-up(large){
+                    font-size: .9rem;
+                }
+            }
+        }
+
+        .footer-links1 h5, .footer-links2 h5 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-transform: uppercase;
+            color: $white;
+            margin-bottom: 1rem;
+            text-shadow: $textShadow;
+
+            @include breakpoint-up(large){
+                font-size: 1rem;
+            }
+        }
+
+        .footer-links1 {
+            @include breakpoint-up(medium){
+                grid-area: links1;
+            }
+            
+        }
+        .footer-links2 {
+            @include breakpoint-up(medium){
+                grid-area: links2;
+            }
+            
+        }
+    }
+}

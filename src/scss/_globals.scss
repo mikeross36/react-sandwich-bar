@@ -1,0 +1,106 @@
+$mainGold: #ffb005;
+$mainBlack: #000000;
+$mainRed: #c50303;
+$mainGrey: #1a1a25a8;
+$mainGreen: #375c3c;
+$white: #ffffff;
+$mainBlue: #606c88;
+$bodyBcg: #ffe259;
+
+$fontSm: 1rem;
+$fontMd: 1.5rem;
+$fontLg: 2rem;
+$fontXlg: 2.5rem;
+
+$textShadow: .125rem .125rem .125rem $mainBlack;
+$boxShadow: .25rem .25rem .25rem $mainBlack;
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: $bodyBcg;
+}
+
+h1 {
+    font-size: 2.5rem;
+    @include breakpoint-up(large) {
+      font-size: $fontXlg;
+    }
+  }
+  h2 {
+    font-size: $fontLg;
+    @include breakpoint-up(large) {
+      font-size: 2.5rem;
+    }
+  }
+  h3 {
+    font-size: 1.5rem;
+    @include breakpoint-up(large) {
+      font-size: $fontLg;
+    }
+  }
+
+a, a:visited, a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.main-button {
+    display: inline-block;
+    padding: .5rem 1rem;
+    color: $mainBlack;
+    background: $mainGold;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: .625rem;
+    transition: transform .5s ease-in-out;
+    box-shadow: $boxShadow;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.title {
+    margin: .7rem;
+    cursor: pointer;
+
+    &-text {
+        font-size: $fontMd;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: uppercase;
+        color: $white;
+        text-shadow: $textShadow;
+        padding: .5rem 0;
+
+        @include breakpoint-up(medium){
+            font-size: $fontLg;
+        }
+    }
+
+    &-underline {
+        width: 2.5rem;
+        border: .3rem  solid $mainGold;
+        box-shadow: $boxShadow;
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            width: 14rem;
+        }
+    }
+}
