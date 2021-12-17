@@ -1,4 +1,5 @@
 import React from "react"
+import nextId from "react-id-generator"
 
 import {
     FaFacebook,
@@ -7,17 +8,17 @@ import {
 
 export const socialIcons = [
     {
-        id:1,
+        id:nextId(),
         url: "https://www.facebook.com/",
         icon: <FaFacebook />
     },
     {
-        id:2,
+        id:nextId(),
         url: "https://www.instagram.com/",
         icon: <FaInstagram />
     },
     {
-        id:3,
+        id:nextId(),
         url: "https://twitter.com/?lang=en",
         icon: <FaTwitter />
     },

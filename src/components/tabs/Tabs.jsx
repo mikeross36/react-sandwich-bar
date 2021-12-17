@@ -1,57 +1,38 @@
-import React, {useState} from "react"
+import React from "react"
 import marmite from "../../images/marmite.jpg"
 import mackerel from "../../images/mackerel.jpg"
 import egg from "../../images/egg.jpg"
+import MainBtn from "../mainbtn/MainBtn"
 
-export default function Tabs(){
-    const [toggleState, setToggleState] = useState(1)
-
-    const toggleTab = function(index){
-        setToggleState(index)
-    };
-
+export default function Tabs({activeTab, toggleTab}){
     return (
         <section className="tabs">
             <div className="container">
                 <div className="tabs-header">
-                    <h3>Best sandwich recipes</h3>
-                    <h5>Want the best club sandwich, looking for the ultimate steak sandwich? 
-                        Try our sandwich recipes to take on a picnic (more ideas here), or as a 
-                        lunch at home ‘al desko’.
+                    <h3>best sandwich recipes</h3>
+                    <h5>Do you want the best club sandwich, looking for the ultimate steak sandwich?
+                        Try out our sandwich recipes to take on a picnic (more ideas here), or as 
+                        a lunch at home 'al desko'.
                     </h5>
                 </div>
-                <div className="tabs-btn-box">
-                    <button 
-                        className={toggleState === 1 ? "btn1 active-tab" : "btn1"} 
-                        onClick={function(){
-                            toggleTab(1)}}>
-                            1
-                    </button>
-                    <button 
-                        className={toggleState === 2 ? "btn2 active-tab" : "btn2"} 
-                        onClick={function(){
-                            toggleTab(2)}}>
-                            2
-                    </button>
-                    <button 
-                        className={toggleState === 3 ? "btn3 active-tab" : "btn3"} 
-                        onClick={function(){
-                            toggleTab(3)}}>
-                            3
-                    </button>
-                    <button 
-                        className={toggleState === 4 ? "btn4 active-tab" : "btn4"} 
-                        onClick={function(){
-                            toggleTab(4)}}>
-                            4
-                    </button>
+                {/*  */}
+                <div className="tabs-btn-box" data-testid="tabs-btn-box">
+                    <button data-testid="btn1"
+                        className={`btn1 ${activeTab === 1 && "active-tab"}`} onClick={function(){toggleTab(1)}}>1</button>
+                    <button data-testid="btn2"
+                        className={`btn2 ${activeTab === 2 && "active-tab"}`} onClick={function(){toggleTab(2)}}>2</button>
+                    <button data-testid="btn3"
+                        className={`btn3 ${activeTab === 3 && "active-tab"}`} onClick={function(){toggleTab(3)}}>3</button>
+                    <button data-testid="btn4"
+                        className={`btn4 ${activeTab === 4 && "active-tab"}`} onClick={function(){toggleTab(4)}}>4</button>
                 </div>
+                {/*  */}
                 <article 
-                    className={toggleState === 1 ? "tabs-content content1 active-content" : "tabs-content content1"}>
+                    className={`tabs-content content1 ${activeTab === 1 && "active-content"}`}>
                     <div className="content-left">
                         <h3>Marmite-glazed steak sandwich</h3>
                         <p>
-                            Brush rump steak with melted Marmite for a seriously savoury treat served inside ciabatta with chutney, rocket and dolcelatte. <br /> 
+                            Brush rump steak with melted Marmite for a seriously savoury treat served inside ciabatta with chutney, rocket and dolcelatte. 
                             Ingredients: <br />
                             olive oil for the steak
                             rump steak 1 large (250g)
@@ -66,23 +47,19 @@ export default function Tabs(){
                         </p>
                     </div>
                     <div className="content-right">
-                        <img src={marmite} alt="marmite sandwitch" />
-                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" 
-                            target="_blank"
-                            rel="noreferrer" 
-                            className="main-button">
-                            explore
+                        <img src={marmite} alt="marmite sandwich" />
+                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" target="_blank" rel="noreferrer">
+                            <MainBtn />
                         </a>
                     </div>
-                   
                 </article>
-
+                {/*  */}
                 <article 
-                    className={toggleState === 2 ? "tabs-content content2 active-content" : "tabs-content content2"}>
+                    className={`tabs-content content2 ${activeTab === 2 && "active-content"}`}>
                     <div className="content-left">
                         <h3>Istanbul’s mackerel sandwiches</h3>
                         <p>
-                            A street-food favourite in Istanbul, these ciabatta sarnies are stuffed with fried mackerel, salad and a pomegranate molasses dressing for an easy lunch that's ready in just 20 minutes. <br />
+                            A street-food favourite in Istanbul, these ciabatta sarnies are stuffed with fried mackerel, salad and a pomegranate molasses dressing for an easy lunch that's ready in just 20 minutes.
                             Ingredients: <br />
                             red onion ¼ small, sliced
                             ciabatta rolls 2, halved
@@ -92,22 +69,18 @@ export default function Tabs(){
                             carrot ½, grated
                             rocket a large handful
                             tomato 1 ripe, finely sliced
-
                         </p>
                     </div>
                     <div className="content-right">
-                        <img src={mackerel} alt="marmite sandwitch" />
-                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" 
-                            target="_blank"
-                            rel="noreferrer" 
-                            className="main-button">
-                            explore
+                        <img src={mackerel} alt="marmite sandwich" />
+                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" target="_blank" rel="noreferrer">
+                            <MainBtn />
                         </a>
                     </div>
                 </article>
-
+                {/*  */}
                 <article 
-                    className={toggleState === 3 ? "tabs-content content3 active-content" : "tabs-content content3"}>
+                    className={`tabs-content content3 ${activeTab === 3 && "active-content"}`}>
                     <div className="content-left">
                         <h3>Supercharged egg mayo sandwich</h3>
                         <p>
@@ -125,21 +98,18 @@ export default function Tabs(){
                         </p>
                     </div>
                     <div className="content-right">
-                        <img src={egg} alt="marmite sandwitch" />
-                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" 
-                            target="_blank"
-                            rel="noreferrer" 
-                            className="main-button">
-                            explore
+                        <img src={egg} alt="marmite sandwich" />
+                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" target="_blank" rel="noreferrer">
+                            <MainBtn />
                         </a>
                     </div>
                 </article>
-                <article 
-                    className={toggleState === 4 ? "tabs-content content4 active-content" : "tabs-content content4"}>
+                {/*  */}
+                <article className={`tabs-content content4 ${activeTab === 4 && "active-content"}`}>
                     <div className="content-left">
                         <h3>Marmite-glazed steak sandwich</h3>
                         <p>
-                            Brush rump steak with melted Marmite for a seriously savoury treat served inside ciabatta with chutney, rocket and dolcelatte. <br /> 
+                            Brush rump steak with melted Marmite for a seriously savoury treat served inside ciabatta with chutney, rocket and dolcelatte.
                             Ingredients: <br />
                             olive oil for the steak
                             rump steak 1 large (250g)
@@ -154,12 +124,9 @@ export default function Tabs(){
                         </p>
                     </div>
                     <div className="content-right">
-                        <img src={marmite} alt="marmite sandwitch" />
-                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" 
-                            target="_blank"
-                            rel="noreferrer" 
-                            className="main-button">
-                            explore
+                        <img src={marmite} alt="marmite sandwich" />
+                        <a href="https://www.olivemagazine.com/guides/best-ever/best-ever-sandwich-recipes/" target="_blank" rel="noreferrer">
+                            <MainBtn />
                         </a>
                     </div>
                 </article>

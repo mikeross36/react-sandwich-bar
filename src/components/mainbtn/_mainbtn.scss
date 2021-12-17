@@ -1,0 +1,16 @@
+.main-button {
+    display: inline-block;
+    padding: .5rem 1rem;
+    color: $mainBlack;
+    background: $mainGold;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: .625rem;
+    transition: transform .5s ease-in-out;
+    box-shadow: $boxShadow;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
